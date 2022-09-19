@@ -1,0 +1,411 @@
+#include <stdio.h>
+ 
+ //variables
+struct train 
+{
+ char name1[25];
+ char age[25];
+ char mob[25];
+ char upp[25];
+ char ch3[20];
+  char ch4[20];
+  char code[20];
+}a1;
+//---------------------------------------------------
+ //variabls for username and password
+struct login
+{
+ char name[20];
+ char pass[20];
+}n1;
+//------------------------------------------------------------
+//menu calls
+void menucall();
+void booktrain();
+void bookedtrain();
+void canceltrain();
+void bookanothertrain();
+//---------------------------------------------------------------
+//for booking trains
+    void punjab_mail();
+    void patna_express();
+
+//---------------------------------------------------------------
+//punjab mail update
+
+void punjab_mail_update();
+//---------------------------------------------------------------
+ void main() //SIGN UP PAGE
+{
+  
+
+
+
+  printf("\n\n   \t\t\t\t                 C LANGUAGE PROJECT\n\n");
+	printf("\t\t\t====================================================================\n");
+	printf("\t\t\t||                                                                ||\n");
+	printf("\t\t\t||                    IRCTC RAILWAY TICKET BOOKING                ||\n");
+	printf("\t\t\t||                                                                ||\n");
+	printf("\t\t\t||================================================================||\n");
+
+
+
+ printf("\n\n\n\t\t\t\t******************SIGNUP NOW******************\n\n");
+    
+    
+
+
+    char username[20],password[21], q[20],h[20];
+    int i=1;
+ 
+    FILE *fp1;
+    fp1=fopen("railwaylogin.txt","a");
+     
+     printf("\n\t\tCreate UserName\t:-\t ");
+     scanf("%s",n1.name);
+     printf("\n\t\tCreate PassWord\t:-\t");
+     scanf("%s",n1.pass); 
+
+     printf("\n\n\t\tEnter Mobile Number\t:-\t");
+     scanf("%s",q);
+
+     printf("\n\n\t\tOtp Has been Sent To Your Mobile Number *****01468");
+              
+     printf("\n\n\t\tEnter Otp\t:-\t");
+     scanf("%s",h);
+
+
+
+     fprintf(fp1,"\n\n %s \n\n%s",n1.name,n1.pass);
+     
+           printf("\n\n\n\t\t\t*****************SIGNUP SUCCESS*******************\n\n");
+    // fclose(fp1); 
+     
+    
+       printf("\n\n\n\t\t\t***************LOGIN NOW*****************\n\n");
+
+     //LOGINPAGE
+   do{  
+
+   
+
+    printf("\n \n Enter User Name:-\t");
+    scanf("%s",username);
+    printf("\n Enter PassWord:-\t");
+    scanf("%s",password);
+ 
+    fp1=fopen("railwaylogin.txt","a");
+    fscanf( fp1, "\n  %s %s ",n1.name,n1.pass);
+    printf("\n \nUserName\t:-\t%s  \n PassWord\t:-\t%s" ,  n1.name,n1.pass);
+
+ //COMAPRING US&PASS
+
+
+    if (((strcmp (n1.name,username)==0)) && ((strcmp(n1.pass,password)==0)))
+    {
+  
+      printf("\n\n\n\t\t\t<<<<<<<<<<<<<<<<<<<LOGIN SUCCESS<<<<<<<<<<<<<<<<<<<\n\n");
+       break;
+    }
+     else
+    {
+        printf("\n\n Wrong Login Details");
+        i++;
+    }
+    printf("\n\n Please Try Again");
+    fclose(fp1);
+		
+   //DO CLOSE
+    } while(i<=3);
+
+
+
+     void menucall()
+ {
+    
+}
+ 
+  //FILE *fp;
+  //fp=fopen("menu.txt","w");
+  //int ch;
+ 
+
+  
+  printf("\n\n   \t\t\t\t              Train Booking Menu\n\n");
+	printf("\t\t\t====================================================================\n");
+	printf("\t\t\t||              Press <1> For Book Train                          ||\n");
+	printf("\t\t\t||              Press <2> For Booked Train                        ||\n");
+	printf("\t\t\t||              Press <3> For Bancel Train                        ||\n");
+	printf("\t\t\t||              Press <4> For Book Another Train                  ||\n");
+	printf("\t\t\t||              Press <5> For Back To Menu                        ||\n");
+	printf("\t\t\t||================================================================||\n");
+
+   
+   int ch;
+
+printf("\n\nenter choice");
+scanf("%d",&ch);
+ 
+  switch(ch)
+  {
+
+ case 1:
+ 
+ booktrain();
+ 
+ break;
+  
+  case 2:  
+ bookedtrain();
+ break;
+  
+  case 3:
+   canceltrain();
+ // canceltrain();
+  printf("\n\ndo you want back to menu");
+  fflush(stdin);
+  scanf("%c",&ch);
+  
+  if(ch=='y')
+  {
+    bookedtrain();
+  }
+  else{
+    menucall();
+  }
+  break;
+
+  case 4:
+  bookanothertrain();
+  break;
+  
+  case 5:
+  menucall();
+  break;
+
+  default:
+  {  if("ch==1,2,3,4,5")
+    {
+    
+    }
+    else{
+    menucall();
+    }
+  }
+
+  } //switchclose
+
+  }//void menucall close
+
+    
+  
+ void booktrain()
+{
+  struct train a1;
+  FILE *fp;
+  fp =fopen("booktrain5.txt","a");
+
+  printf("\n\n\t\t\tBOOKING A TRAIN");
+  printf("\n\nfrom station to");
+  fflush(stdin);
+   scanf("%s",a1.ch3);
+ 
+ 
+ printf("\n\nfrom  to destination");
+ fflush(stdin);
+ 
+ scanf("%s",a1.ch4);
+ fprintf(fp,"from =%s\n ",a1.ch3);
+ 
+ fprintf(fp,"destination =%s\n",a1.ch4);
+  printf("\n\nbook train 1");
+  printf("\n\nthis is rainn  ookkkn naaa"); 
+   fclose(fp);
+  printf("\n\n punjab mail ");
+  printf("\n\n patna express");
+  printf("\n\n update punjab mail update");
+ 
+ 
+ int ch5;
+    printf("\n\nenter your choice");
+    fflush(stdin);
+    scanf("%d",&ch5);
+ 
+    switch(ch5)
+    
+{
+  case 1:
+    
+
+     punjab_mail();
+    break;
+
+case 2:
+
+   patna_express();
+
+  break;
+  
+   case 3:
+     punjab_mail_update();
+      break;
+ /*  case 3:
+ printf("\n\n mumbai hai");
+  break;
+
+
+  case 4:
+ printf("\n\n amritsar hai");
+  break;
+*/
+  //default:
+ // printf("\n\n correct number please");
+
+
+}
+
+    
+
+ 
+}
+
+
+ void bookedtrain()
+{
+  FILE *fp2;
+  fp2 =fopen("booktrain1.txt","w");
+  
+  printf("book train 2");
+  fclose(fp2);
+}
+
+
+ void canceltrain()
+{
+  FILE *fp2;
+  fp2 =fopen("booktrain2.txt","w");
+
+  printf("book train 3");
+  fclose(fp2);
+}
+
+
+ void bookanothertrain()
+{
+  FILE *fp2;
+  fp2 =fopen("booktrain3.txt","w");
+ char ch1;
+  printf("book train 4");
+  printf("back to menu??");
+  /*scanf("%c",&ch1);
+  if(ch1=='y')
+  {
+   bookanothertrain()
+  }
+
+  else
+  {
+
+    menucall()
+  }
+  break;*/
+  fclose(fp2);
+
+}
+
+
+    void punjab_mail()
+    {
+   printf("\n\ntrain code 216"); 
+   printf("\n\ntrain name punjab mail ");
+
+     FILE *fp;
+     char name[20];
+     char code[20];
+     char age[20];
+     fp=fopen("null.txt","w+");
+      
+
+      printf("\n\nenter code");
+      scanf("%s",code);
+
+
+      printf("\n\nenter name");
+      scanf("%s",name);
+
+      printf("\n\nenter age");
+      scanf("%s",age);
+
+     fprintf(fp,"code=%s\n name=%s\n age=%s\n",code,age,name);
+     //fclose(fp5);
+    fclose(fp);
+
+      printf("\n\n punjab city");
+    }
+      
+  void punjab_mail_update()
+{
+  char name[21];
+  char code[21];
+  char age[21];
+
+   FILE *fp;
+   fp=fopen("null.txt","r+");
+
+   if(fp==NULL)
+	{
+		printf("\n\nCannot open file");
+	}
+
+  printf(" Enter train code or passanger name which you want to update\n");
+
+	scanf("%s ",name);
+
+    while(fscanf(fp,"%s",name)!=EOF)
+	{
+		if(strcmp(name,name)==0)
+		{
+				printf("\n\nRECORD FOUND");
+		
+			printf("%s",name);
+  
+   printf("Enter field name which u want to update\n");
+			scanf("%s",name);
+
+   
+			if(strcmp(name,name)==0)
+			{
+				printf("Enter new data\n");
+				
+				scanf("%s",name);
+        fp=fopen("null.txt","w");	
+		fprintf(fp,"%s\n%s\n\n",name,code,age);
+
+	printf("\n\nRECORD UPDATE'D");
+				
+			}
+			else
+			{
+				printf("\n\nREC  not found");
+			}
+    } 
+    fclose(fp);
+      
+     } 
+    }
+  
+
+
+//error not printing in null,txt in file 
+
+
+    void patna_express()
+    {
+    
+      printf("\n\npatna city okk bhai ");
+    
+    }
+
+
+
+
